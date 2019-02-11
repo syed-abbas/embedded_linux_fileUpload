@@ -18,6 +18,10 @@
  * This software is distributed on an "AS IS" basis, WITHOUT WARRANTY OF ANY
  * KIND, either express or implied.
  *
+ * It takes the filename, FTP server url, user and password to connect and upload
+ * the file
+ * Edited by: Syed Ali Abbas syed.3bbas@gmail.com
+ *
  ***************************************************************************/
 #include <stdio.h>
 #include <string.h>
