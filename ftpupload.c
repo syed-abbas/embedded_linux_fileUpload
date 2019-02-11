@@ -39,10 +39,10 @@
  * </DESC>
  */
 
-#define LOCAL_FILE      "./abbas.txt"
-#define UPLOAD_FILE_AS  "abbas_date.txt"
-#define REMOTE_URL      "ftp://ftp.cs.brown.edu/pub"  UPLOAD_FILE_AS
-#define RENAME_FILE_TO  "abbas_date_today.txt"
+#define LOCAL_FILE      "/home/abbas/data/abbas.txt"
+#define UPLOAD_FILE_AS  "abbas.txt"
+#define REMOTE_URL      "ftp://ftp.dlptest.com/"  UPLOAD_FILE_AS
+#define RENAME_FILE_TO  "abbas.txt"
 
 /* NOTE: if you want this example to work on Windows with libcurl as a
    DLL, you MUST also provide a read callback with CURLOPT_READFUNCTION.
@@ -93,9 +93,17 @@ int main(void)
   /* get a curl handle */
   curl = curl_easy_init();
   if(curl) {
+   curl_easy_setopt(curl, CURLOPT_USERNAME, "dlpuser@dlptest.com");
+   //setting user name
+   curl_easy_setopt(curl, CURLOPT_PASSWORD, "puTeT3Yei1IJ4UYT7q0r");
+   //setting password
+ 
     /* build a list of commands to pass to libcurl */
     headerlist = curl_slist_append(headerlist, buf_1);
     headerlist = curl_slist_append(headerlist, buf_2);
+
+    /* ask libcurl to show us the verbose output */
+    curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L);
 
     /* we want to use our own read function */
     curl_easy_setopt(curl, CURLOPT_READFUNCTION, read_callback);
